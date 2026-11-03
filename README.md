@@ -4,11 +4,11 @@ Controle de entradas e saídas com histórico de movimentações.
 
 ## Estado atual
 
-Projeto em planejamento. Este repositório contém a definição do projeto; ainda não há aplicação executável, interface ou testes implementados.
+MVP executável em branch de desenvolvimento, com testes automatizados. Entradas, saídas e histórico em memória, sem permitir saldo negativo. Ainda não há API, interface ou persistência.
 
-## Tecnologias propostas
+## Tecnologias implementadas
 
-Java, Spring Boot, React e PostgreSQL. A escolha será confirmada ao iniciar a implementação.
+Java 17 e Maven.
 
 ## Escopo da primeira versão
 
@@ -25,7 +25,13 @@ Java, Spring Boot, React e PostgreSQL. A escolha será confirmada ao iniciar a i
 
 ## Desenvolvimento
 
-As funcionalidades acima são planejadas. Os comandos de instalação e a estrutura do código serão documentados junto da primeira implementação. Não há integrações externas ou serviços ativos nesta etapa.
+Execute na raiz do repositório:
+
+```bash
+mvn -B test
+```
+
+O GitHub Actions executa a validação em pushes e pull requests. Este é um núcleo demonstrativo; as funcionalidades ainda marcadas como pendentes na lista acima continuam planejadas.
 
 ## Privacidade e configuração
 
