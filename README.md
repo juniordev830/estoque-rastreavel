@@ -13,8 +13,8 @@ Java 17 e Maven.
 ## Escopo da primeira versão
 
 - [ ] Cadastrar produtos
-- [ ] Registrar movimentações sem saldo negativo
-- [ ] Consultar histórico por produto
+- [x] Registrar movimentações sem saldo negativo
+- [x] Consultar histórico por produto
 
 ## Critérios para concluir a primeira versão
 
