@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public final class EstoqueService {
     private final Clock clock;
@@ -18,7 +19,7 @@ public final class EstoqueService {
     }
 
     public EstoqueService(Clock clock) {
-        this.clock = clock;
+        this.clock = Objects.requireNonNull(clock, "Relógio obrigatório");
     }
 
     public void registrarEntrada(String produto, int quantidade) {
@@ -48,7 +49,9 @@ public final class EstoqueService {
         var nome = produto == null ? null : produto.trim();
         var movimento = new Movimentacao(nome, tipo, quantidade, LocalDateTime.now(clock));
         var delta = tipo == Movimentacao.TipoMovimento.ENTRADA ? quantidade : -quantidade;
-        saldos.merge(nome, delta, Integer::sum);
+        // Calculate before changing either collection so overflow leaves no partial entry.
+        var novoSaldo = Math.addExact(saldos.getOrDefault(nome, 0), delta);
+        saldos.put(nome, novoSaldo);
         historico.add(movimento);
     }
 }
