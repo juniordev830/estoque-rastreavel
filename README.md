@@ -43,3 +43,7 @@ O GitHub Actions executa os testes em pushes e pull requests. A suíte cobre mov
 Este projeto é uma biblioteca de domínio testável, sem aplicação web, API, banco ou CLI. O armazenamento em memória é destinado a uso sequencial em um único processo; não há garantias para chamadas concorrentes. Os registros desaparecem ao encerrar o processo. Ainda faltam catálogo de produtos, persistência transacional e interface.
 
 Os exemplos usam dados fictícios. Não versionar credenciais ou dados pessoais. Licença ainda não definida.
+
+## Documentação para manutenção
+
+O [guia de validação](docs/GUIA_DE_VALIDACAO.md) contém testes de regressão, pontos críticos e critérios para revisar a próxima alteração.
