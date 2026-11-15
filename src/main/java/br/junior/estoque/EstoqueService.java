@@ -22,23 +22,23 @@ public final class EstoqueService {
         this.clock = Objects.requireNonNull(clock, "Relógio obrigatório");
     }
 
-    public void registrarEntrada(String produto, int quantidade) {
+    public synchronized void registrarEntrada(String produto, int quantidade) {
         movimentar(produto, Movimentacao.TipoMovimento.ENTRADA, quantidade);
     }
 
-    public void registrarSaida(String produto, int quantidade) {
+    public synchronized void registrarSaida(String produto, int quantidade) {
         var saldo = saldo(produto);
         if (quantidade <= 0) throw new IllegalArgumentException("Quantidade deve ser positiva");
         if (saldo < quantidade) throw new IllegalStateException("Saldo insuficiente");
         movimentar(produto, Movimentacao.TipoMovimento.SAIDA, quantidade);
     }
 
-    public int saldo(String produto) {
+    public synchronized int saldo(String produto) {
         if (produto == null || produto.isBlank()) throw new IllegalArgumentException("Produto obrigatório");
         return saldos.getOrDefault(produto.trim(), 0);
     }
 
-    public List<Movimentacao> historico(String produto) {
+    public synchronized List<Movimentacao> historico(String produto) {
         if (produto == null || produto.isBlank()) throw new IllegalArgumentException("Produto obrigatório");
         return Collections.unmodifiableList(historico.stream()
                 .filter(m -> m.produto().equals(produto.trim()))
