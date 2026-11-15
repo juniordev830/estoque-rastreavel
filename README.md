@@ -76,4 +76,8 @@ Os dados permanecem **em memória** e desaparecem ao encerrar o processo. Não h
 - `src/main/java/br/junior/estoque/RelatoriosEstoque.java` — indicadores e exportações.
 - `src/test/java/br/junior/estoque/` — testes JUnit.
 
-Use dados fictícios nos exemplos. Não versionar credenciais nem dados pessoais. Licença ainda não definida.
+Os exemplos usam dados fictícios. Não versionar credenciais ou dados pessoais. Licença ainda não definida.
+
+## Documentação para manutenção
+
+O [guia de validação](docs/GUIA_DE_VALIDACAO.md) contém testes de regressão, pontos críticos e critérios para revisar a próxima alteração.
